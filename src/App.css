@@ -1,0 +1,29 @@
+.nav{
+  
+  position:absolute;
+  top:0px;
+  left: 0px;
+  bottom: 0;
+  background-color:aqua;
+}
+.nav link{
+  background-color: black;
+  color: red;
+}
+.app {
+    transition: background-color 0.3s ease;
+  }
+  
+  .light {
+    --bg-color: white;
+  }
+  
+  .dark {
+    --bg-color: black;
+    color: white; /* Adjust text color for dark background */
+  }
+  
+  .app {
+    background-color: var(--bg-color);
+  }
+  
