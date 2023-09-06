@@ -1,0 +1,219 @@
+import './App.css';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import React, { useState } from 'react';
+// import { Routes, Route, Outlet, Link } from "react-router-dom";
+// import Home from './Components/Home';
+// import About from './Components/About';
+// import Trends from './Components/Trends';
+// import Moduel from './Components/Moduel';
+// import BarChart from './Components/BarChart';
+function App() {
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // const toggleTheme = () => {
+  //   setIsDarkMode((prevMode) => !prevMode);
+  // };
+ const [action,setaction]= useState("Login");
+ const [active,setActive] = useState("");
+ const handleSubmit = (e) => {
+  e.preventDefault();};
+  const handleclick = () => {
+    setActive(!active);
+    console.log("first")
+  };
+
+  return (
+    <>
+{/*    
+   <div className={`app ${isDarkMode ? 'dark' : 'light'}`}>
+    <ul className="nav flex-column  ">
+  
+  <li className="nav-item">
+    <Link to="/"><button>Home</button></Link>
+  </li>
+  <li className="nav-item">
+    <Link to="moduel"> <button>Moduel</button></Link>
+  </li>
+  <li className="nav-item">
+    <Link to="trends"><button>Trends</button></Link>
+  </li>
+  <li className="nav-item">
+    <Link to="barchart"><button>BarChart</button></Link>
+  </li>
+  <li className="nav-item">
+    <Link to="about"><button>About</button></Link>
+  </li>
+  <button onClick={toggleTheme}>Toggle Theme</button>
+</ul>
+   </div>
+    <Outlet/> */}
+
+     {/* <Routes>
+         <Route  exact path="/" element={<Home/>} />
+          <Route path='/about' element={<About/>}/>
+          <Route path='/trends' element={<Trends/>}></Route>
+          <Route path='/barchart' element={<BarChart/>}></Route>
+          <Route path='/moduel' element={<Moduel/>}></Route>
+
+      </Routes> */}
+      <div className={active===false ?'sidebar':'sidebar active'}>
+        <div className=''>
+          hii
+        </div> 
+        <div>
+          Home
+        </div>
+        <div>
+          Trends
+        </div>
+        <div>
+          Activty
+        </div>
+        <div>
+          Reports
+        </div>
+        <div className='hamburger'  >
+        <div onClick={()=>handleclick()}>
+          <button>X</button></div>
+        </div>
+
+      </div>
+      <div className='hamburger'  >
+        <div onClick={()=>handleclick(true)}>
+          X</div>
+        </div>
+     
+   <div className='container-fluid'>
+    <div className='header'>{action}</div>
+      <div>
+        <form onClick={handleSubmit}>
+          <div><label> userName</label>
+          <input 
+          type='text' 
+          name='userName'
+          id='userName'
+          placeholder=''/></div>
+
+          {action === 'Login'?<div></div>:
+          <div><label> Email</label>
+          <input 
+          type='text' 
+          name='Email'
+          id='Email'
+          placeholder=''/></div>}
+
+
+
+<div><label> password</label>
+          <input 
+          type='text' 
+          name='password'
+          id='password'
+          placeholder=''/></div>
+
+{action === 'Login'?<div></div>:
+<div>
+  <label> Confirm Password</label>
+          <input 
+          type='text' 
+          name='Confirm Password'
+          id='Confirm Password'
+          placeholder=''/></div>}
+          
+          <button className='submit'> Submit</button> <br/>
+           <button className='toggle' onClick={()=>setaction("Login")}> Login</button>
+           <button className='toggle' onClick={()=>setaction("Signup")}> Signup</button>
+
+
+
+        </form>
+      </div>
+
+
+
+
+   </div>
+    
+   </>
+   
+  );
+}
+
+export default App;
+
+
+
+.sidebar{
+  top:0;
+  left:0;
+  border: solid;
+  bottom: 0;
+  width: 25vb;
+  min-height: 50vh;
+  position: relative;
+  opacity: 1;
+  
+}
+.sidebar.active{
+  transition: all 5s;
+  width: 10vb;
+  height: 100vh;
+  background-color: red;
+}
+.hamburger{
+  position: absolute;
+  right: 0 ;
+  top: 0;
+  border: solid;
+}
+
+.container-fluid{
+ display: flex;
+  flex-direction: column;
+  border: solid;
+  align-content: center;
+  justify-content: center;
+  max-width: 500px;
+  
+ 
+}
+.header{
+  text-align: center;
+
+}
+div input{
+  margin-top: 10px;
+  border-color: black;
+  border-radius: 5px;
+  margin-left: 25px;
+}
+div label{
+  padding: 10px;
+}
+ .submit{
+  margin-top: 10px;
+ border-radius: 5px;
+ align-items: center;
+ align-content: center;
+ margin-left: 100px;
+ height: 40px;
+ width: 200px;
+}
+
+.toggle{
+
+  margin-left: 20px;
+  width: 190px;
+  margin-top :  20px;
+  margin-bottom :  20px;
+  border-radius: 15px;
+  height: 40px;
+  transition:  background-color 2s;
+
+}
+
+.toggle:hover{
+  background-color: rebeccapurple;
+  color: aliceblue;
+}
